@@ -12,7 +12,15 @@
         var todHotspots = ['images/tod_bh_3396.svg', 'images/tod_bh_3792.svg', 'images/tod_bh_3394.svg'];     
         var todHotspotsi = 0;
 
-        var diffStations = ['images/diff_stations_bh_3396.svg', 'images/diff_stations_bh_3792.svg', 'images/diff_stations_bh_3394.svg'];     
+        var diffStations = ['images/diff_stations_bh_3396.svg', 'images/diff_stations_bh_3792.svg', 'images/diff_stations_bh_3394.svg'];   
+        var diffStationsi = 0;
+        
+        var todDiffStations = ['images/tod_diff_stations_bh_3396.svg', 'images/tod_diff_stations_bh_3792.svg', 'images/tod_diff_stations_bh_3394.svg'];   
+        var todDiffStationsi = 0;
+        
+        var weekDiffStations = ['images/week_diff_stations_bh_3396.svg', 'images/week_diff_stations_bh_3792.svg', 'images/week_diff_stations_bh_3394.svg'];   
+        var weekDiffStationsi = 0;
+
         $(document).ready(function() {
             $('#tod-hotspot .right-arrow').click(function() {
                 todHotspotsi = (todHotspotsi + 1) % todHotspots.length;
@@ -28,18 +36,46 @@
                 console.log(todHotspotsi);
             })
 
+            $('#tod-diff-stations .right-arrow').click(function() {
+                todDiffStationsi = (todDiffStationsi + 1) % todDiffStations.length;
+                $('#tod-diff-stations .slide-image').attr('src', todDiffStations[todDiffStationsi]);
+                console.log(todDiffStationsi);
+            })
+            $('#tod-diff-stations .left-arrow').click(function() {
+                if(todDiffStationsi == 0) {
+                    todDiffStationsi += todDiffStations.length;
+                }
+                todDiffStationsi = (todDiffStationsi - 1) % todDiffStations.length;
+                $('#tod-diff-stations .slide-image').attr('src', todDiffStations[todDiffStationsi]);
+                console.log(todDiffStationsi);
+            })
+
             $('#diff-stations .right-arrow').click(function() {
-                todHotspotsi = (todHotspotsi + 1) % todHotspots.length;
-                $('#diff-stations .slide-image').attr('src', todHotspots[todHotspotsi]);
-                console.log(todHotspotsi);
+                diffStationsi = (diffStationsi + 1) % diffStations.length;
+                $('#diff-stations .slide-image').attr('src', diffStations[diffStationsi]);
+                console.log(diffStationsi);
             })
             $('#diff-stations .left-arrow').click(function() {
-                if(todHotspotsi == 0) {
-                    todHotspotsi += todHotspots.length;
+                if(diffStationsi == 0) {
+                    diffStationsi += diffStations.length;
                 }
-                todHotspotsi = (todHotspotsi - 1) % todHotspots.length;
-                $('#diff-stations.slide-image').attr('src', todHotspots[todHotspotsi]);
-                console.log(todHotspotsi);
+                diffStationsi = (diffStationsi - 1) % diffStations.length;
+                $('#diff-stations .slide-image').attr('src', diffStations[diffStationsi]);
+                console.log(diffStationsi);
+            })
+
+            $('#week-diff-stations .right-arrow').click(function() {
+                weekDiffStationsi = (weekDiffStationsi + 1) % weekDiffStations.length;
+                $('#week-diff-stations .slide-image').attr('src', weekDiffStations[weekDiffStationsi]);
+                console.log(weekDiffStationsi);
+            })
+            $('#week-diff-stations .left-arrow').click(function() {
+                if(weekDiffStationsi == 0) {
+                    weekDiffStationsi += weekDiffStations.length;
+                }
+                weekDiffStationsi = (weekDiffStationsi - 1) % weekDiffStations.length;
+                $('#week-diff-stations .slide-image').attr('src', weekDiffStations[weekDiffStationsi]);
+                console.log(weekDiffStationsi);
             })
         })
     </script>
@@ -77,6 +113,13 @@
                 <div class="left-arrow"></div>
                 <img class="slide-image" src='images/week_diff_stations_bh_3396.svg'/>
                 <div class="right-arrow"></div>
+            </div>
+        </section>
+        <section id="time-diff-week">
+            <h2>Time Travel Analysis from Hotspots to Stations by Day of Week and AM/PM</h2>
+            <div class="slide">
+                <img src='images/week_tod.svg'/>
+                <img src='images/week_ampm.svg'/>
             </div>
         </section>
     </div>
