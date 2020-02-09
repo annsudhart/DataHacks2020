@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Lato|Rubik&display=swap" rel="stylesheet">
+    <title>DataHacks 2020 Visualization</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+        var todHotspots = ['images/tod_bh_3396.svg', 'images/tod_bh_3792.svg', 'images/tod_bh_3394.svg'];     
+        var todHotspotsi = 0;
+
+        var diffStations = ['images/diff_stations_bh_3396.svg', 'images/diff_stations_bh_3792.svg', 'images/diff_stations_bh_3394.svg'];     
+        $(document).ready(function() {
+            $('#tod-hotspot .right-arrow').click(function() {
+                todHotspotsi = (todHotspotsi + 1) % todHotspots.length;
+                $('#tod-hotspot .slide-image').attr('src', todHotspots[todHotspotsi]);
+                console.log(todHotspotsi);
+            })
+            $('#tod-hotspot .left-arrow').click(function() {
+                if(todHotspotsi == 0) {
+                    todHotspotsi += todHotspots.length;
+                }
+                todHotspotsi = (todHotspotsi - 1) % todHotspots.length;
+                $('#tod-hotspot .slide-image').attr('src', todHotspots[todHotspotsi]);
+                console.log(todHotspotsi);
+            })
+
+            $('#diff-stations .right-arrow').click(function() {
+                todHotspotsi = (todHotspotsi + 1) % todHotspots.length;
+                $('#diff-stations .slide-image').attr('src', todHotspots[todHotspotsi]);
+                console.log(todHotspotsi);
+            })
+            $('#diff-stations .left-arrow').click(function() {
+                if(todHotspotsi == 0) {
+                    todHotspotsi += todHotspots.length;
+                }
+                todHotspotsi = (todHotspotsi - 1) % todHotspots.length;
+                $('#diff-stations.slide-image').attr('src', todHotspots[todHotspotsi]);
+                console.log(todHotspotsi);
+            })
+        })
+    </script>
+  </head>
+  <body>
+    <div class="content">
+        <h1>Datahacks 2020 Visualizations</h1>
+        <section id="tod-hotspot">
+            <h2>Time Travel Analysis by Time of Day</h2>
+            <div class="slide">
+                <div class="left-arrow"></div>
+                <img class="slide-image" src='images/tod_bh_3396.svg'/>
+                <div class="right-arrow"></div>
+            </div>
+        </section>
+        <section id="diff-stations">
+            <h2>Time Travel Analysis From Hotspots to Different Stations</h2>
+            <div class="slide">
+                <div class="left-arrow"></div>
+                <img class="slide-image" src='images/diff_stations_bh_3396.svg'/>
+                <div class="right-arrow"></div>
+            </div>
+        </section>
+        <section id="tod-diff-stations">
+            <h2>Time Travel Analysis from Hotspots to Stations by Time of Day</h2>
+            <div class="slide">
+                <div class="left-arrow"></div>
+                <img class="slide-image" src='images/tod_diff_stations_bh_3396.svg'/>
+                <div class="right-arrow"></div>
+            </div>
+        </section>
+        <section id="week-diff-stations">
+            <h2>Time Travel Analysis from Hotspots to Stations by Day of Week</h2>
+            <div class="slide">
+                <div class="left-arrow"></div>
+                <img class="slide-image" src='images/week_diff_stations_bh_3396.svg'/>
+                <div class="right-arrow"></div>
+            </div>
+        </section>
+    </div>
+  </body>
+</html>
